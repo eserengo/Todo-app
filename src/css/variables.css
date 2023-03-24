@@ -1,0 +1,25 @@
+:root {
+  
+  /* ### Primary */
+
+  --BrightBlue-Primary: hsl(220, 98%, 61%);
+  --CheckBackground-Gradient1: hsl(192, 100%, 67%); 
+  --CheckBackground-Gradient2: hsl(280, 87%, 65%);
+
+  /* ### Light Theme */
+
+  --LightTheme-VeryLightGray: hsl(0, 0%, 98%);
+  --LightTheme-VeryLightGrayishBlue: hsl(236, 33%, 92%);
+  --LightTheme-LightGrayishBlue: hsl(233, 11%, 84%);
+  --LightTheme-DarkGrayishBlue: hsl(236, 9%, 61%);
+  --LightTheme-VeryDarkGrayishBlue: hsl(235, 19%, 35%);
+
+  /* ### Dark Theme */
+
+  --DarkTheme-VeryDarkBlue: hsl(235, 21%, 11%);
+  --DarkTheme-VeryDarkDesaturatedBlue: hsl(235, 24%, 19%);
+  --DarkTheme-LightGrayishBlue: hsl(234, 39%, 85%);
+  --DarkTheme-DarkGrayishBlue: hsl(234, 11%, 52%);
+  --DarkTheme-VeryDarkGrayishBlue: hsl(233, 14%, 35%);
+  --DarkTheme-VeryDarkGray: hsl(237, 14%, 26%);
+}

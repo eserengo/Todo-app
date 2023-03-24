@@ -1,0 +1,23 @@
+body {
+  min-width: 300px;
+}
+
+#dark {
+  background-image: url("../images/bg-mobile-dark.jpg");
+}
+
+#light {
+  background-image: url("../images/bg-mobile-light.jpg");
+}
+
+.main {
+  padding: 15% 5%;
+}
+
+.toggle {
+  background-position: calc(100% - 2px) 50%;
+}
+
+.toggle:checked {
+  background-position: calc(0% + 2px) 50%;
+}

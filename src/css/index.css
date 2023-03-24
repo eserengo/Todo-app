@@ -1,0 +1,260 @@
+/*
+ Name: Todo App
+ Description: A Frontendmentor.io coding challenge.
+ Author: Federico Borzani
+ Author URL:  https://github.com/eserengo/
+*/
+
+@import "variables.css";
+
+:root {
+  font-family: "Josefin Sans";
+  font-size: 16px;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+  padding: 0%;
+  margin: 0%;
+  user-select: none;
+}
+
+body {
+  min-height: 100vh;
+}
+
+ul, li {
+  list-style-type: none;
+}
+
+section {
+  margin: 16px auto;
+}
+
+button,
+input[type=text],
+input[type=checkbox] {
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: "Josefin Sans";
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.flex-row:not(.sort.flex-row) {
+  justify-content: space-between;
+}
+
+.sort.flex-row {
+  justify-content: center;
+}
+
+#dark,
+#light {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: contain;
+}
+
+#dark {
+  background-color: var(--DarkTheme-VeryDarkBlue);
+}
+
+#dark .counter,
+#dark .btn,
+#dark .input,
+#dark .secondary.para {
+  color: var(--DarkTheme-VeryDarkGrayishBlue);
+}
+
+#dark .btn:hover,
+#dark .primary.para {
+  color: var(--DarkTheme-LightGrayishBlue);
+}
+
+#dark .completed > .primary.para {
+  text-decoration: line-through;
+  color: var(--DarkTheme-VeryDarkGrayishBlue);
+}
+
+#dark .checkbox {
+  border: 1px solid var(--DarkTheme-VeryDarkGrayishBlue);
+}
+
+#dark .display {
+  border: 1px solid var(--DarkTheme-VeryDarkDesaturatedBlue);
+}
+
+#dark .todo {
+  border-bottom: 1px solid var(--DarkTheme-VeryDarkGrayishBlue);
+}
+
+#dark .input,
+#dark .todo,
+#dark .sort,
+#dark .clas {
+  background-color: var(--DarkTheme-VeryDarkDesaturatedBlue);
+}
+
+#light {
+  background-color: var(--LightTheme-VeryLightGrayishBlue);
+}
+
+#light .counter,
+#light .btn,
+#light .input,
+#light .secondary.para {
+  color: var(--LightTheme-DarkGrayishBlue);
+}
+
+#light .btn:hover,
+#light .primary.para {
+  color: var(--LightTheme-VeryDarkGrayishBlue);
+}
+
+#light .completed > .primary.para {
+  text-decoration: line-through;
+  color: var(--LightTheme-DarkGrayishBlue);
+}
+
+#light .checkbox {
+  border: 1px solid var(--LightTheme-LightGrayishBlue);
+}
+
+#light .display {
+  border: 1px solid var(--LightTheme-VeryLightGray);
+}
+
+#light .todo {
+  border-bottom: 1px solid var(--LightTheme-LightGrayishBlue);
+}
+
+#light .input,
+#light .todo,
+#light .sort,
+#light .clas {
+  background-color: var(--LightTheme-VeryLightGray);
+}
+
+.todo {
+  cursor: grab;
+}
+
+.icon {
+  width: 1rem;
+}
+
+.main {
+  min-height: 95vh;
+}
+
+.primary.title {
+  color: var(--LightTheme-VeryLightGray);
+  font-size: 140%;
+  letter-spacing: 4px;
+}
+
+.input,
+.sort {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  border-radius: 4px;
+}
+
+.display {
+  border-radius: 4px;
+}
+
+.display > * {
+  width: 100%;
+  height: 3rem;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.sort.flex-row {
+  gap: 16px;
+}
+
+.checkbox {
+  background-color: transparent;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+
+.checkbox:hover:not(.checkbox:checked) {
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--CheckBackground-Gradient1), var(--CheckBackground-Gradient2)) border-box;
+  -webkit-mask:
+     linear-gradient(#fff 0 0) padding-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+.checkbox:checked {
+  background-image: url("../images/icon-check.svg"), linear-gradient(135deg, var(--CheckBackground-Gradient1), var(--CheckBackground-Gradient2));
+  background-repeat: no-repeat;
+  background-size: 40% 40% 100% 100%;
+  background-position: 50% 50%;
+}
+
+.btn {
+  background-color: transparent;
+  border: none;
+}
+
+.active {
+  color: var(--BrightBlue-Primary) !important;
+}
+
+.secondary.para {
+  margin-top: 32px;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 20px;
+  border: 1px solid var(--LightTheme-VeryLightGray) !important;
+  border-radius: 12px;
+  background-image: url("../images/icon-sun.svg");
+  background-repeat: no-repeat;
+  background-size: 40% 80%;
+}
+
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--LightTheme-VeryLightGray);
+}
+
+.toggle:checked {
+  background-image: url("../images/icon-moon.svg");
+  background-repeat: no-repeat;
+  background-size: 40% 80%;
+}
+
+.toggle:checked::after {
+  transition: transform 0.7s ease;
+  transform: translateX(20px);
+}
+
+.attribution {
+  font-size: 70%;
+  display: block;
+  text-align: center;
+  margin-top: 16px;
+}
